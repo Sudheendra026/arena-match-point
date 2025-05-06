@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, Trophy, ChevronDown, ChevronUp } from "lucide-react";
+import { Calendar, Clock, Trophy, ChevronDown, ChevronUp, DollarSign } from "lucide-react";
 import { format } from "date-fns";
 
 // Define the Match type
@@ -31,6 +31,7 @@ interface Tournament {
   endDate: Date;
   location: string;
   imageUrl: string;
+  entryFee: number; // Added entry fee property
   matches: Match[];
 }
 
@@ -44,6 +45,7 @@ const sampleTournaments: Tournament[] = [
     endDate: new Date(2025, 6, 30), // July 30, 2025
     location: "Central Cricket Ground",
     imageUrl: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&q=80&w=600",
+    entryFee: 25, // Added entry fee in dollars
     matches: [
       {
         id: "1-1",
@@ -79,6 +81,7 @@ const sampleTournaments: Tournament[] = [
     endDate: new Date(2025, 6, 7), // July 7, 2025
     location: "Memorial Park",
     imageUrl: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?auto=format&fit=crop&q=80&w=600",
+    entryFee: 15, // Added entry fee in dollars
     matches: [
       {
         id: "2-1",
@@ -106,6 +109,7 @@ const sampleTournaments: Tournament[] = [
     endDate: new Date(2025, 7, 25), // August 25, 2025
     location: "Riverside Stadium",
     imageUrl: "https://images.unsplash.com/photo-1493962853295-0fd70327578a?auto=format&fit=crop&q=80&w=600",
+    entryFee: 30, // Added entry fee in dollars
     matches: [
       {
         id: "3-1",
@@ -181,6 +185,11 @@ const MatchFeed = () => {
                   <div>
                     <span className="text-gray-700 font-medium">Matches: </span>
                     <span>{tournament.matches.length}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-cricket-red" />
+                    <span className="text-gray-700 font-medium">Entry Fee: </span>
+                    <span className="text-cricket-red font-semibold">${tournament.entryFee}</span>
                   </div>
                 </div>
               </CardContent>

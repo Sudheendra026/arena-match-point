@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import {
   Card,
@@ -9,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, Clock, Trophy, ChevronDown, ChevronUp, DollarSign } from "lucide-react";
+import { Calendar, Clock, Trophy, ChevronDown, ChevronUp, DollarSign, UserRoundPlus } from "lucide-react";
 import { format } from "date-fns";
 
 // Define the Match type
@@ -195,7 +194,16 @@ const MatchFeed = () => {
               </CardContent>
               <CardFooter className="flex flex-col w-full gap-3">
                 <Button 
-                  className="w-full bg-cricket-tan hover:bg-cricket-tan/90 text-white"
+                  className="w-full bg-cricket-green hover:bg-cricket-green/90 text-white"
+                  onClick={() => {}}
+                >
+                  <UserRoundPlus className="mr-2 h-4 w-4" />
+                  Join Tournament
+                </Button>
+                
+                <Button 
+                  variant="outline" 
+                  className="w-full text-cricket-navy"
                   onClick={() => toggleTournament(tournament.id)}
                 >
                   {expandedTournament === tournament.id ? 'Hide Matches' : 'Show Matches'}
@@ -224,10 +232,6 @@ const MatchFeed = () => {
                     ))}
                   </div>
                 )}
-                
-                <Button variant="outline" className="w-full">
-                  Tournament Details
-                </Button>
               </CardFooter>
             </Card>
           ))}
